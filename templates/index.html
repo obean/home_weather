@@ -1,5 +1,6 @@
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <h1> 'Hello World! The current temp is {{thermo}}' </h1>
 <link rel="stylesheet" href='/static/style.css' />
 </head>
@@ -7,5 +8,7 @@
 <h1>brightness is {{lumens}} lumens</h1>
 <button type="button" onclick=location.reload() >Click to update lumens</button>
 <button type="button" onclick={{lumens}}.reload() >Click to update both </button>
+<script src="../src/apiKeys.js"></script>
+<script src="../src/weather_request.js"></script>
 </body>
 </html>
