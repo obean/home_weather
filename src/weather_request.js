@@ -70,4 +70,4 @@ $('#timeRain').text(addWeatherData.parsePrecip(weather.minutely)[1])}
 //   if( hello.hourly[i].rain != undefined){
 //       console.log(i)}}
 // this link says that rain measurements are probably milimiters
-//https://www.google.com/search?q=metric+measurement+for+rain&rlz=1C5CHFA_enGB844GB844&oq=metric+measurement+for+rain&aqs=chrome..69i57j0i22i30i457.8263j0j9&sourceid=chrome&ie=UTF-8
+//https://www.google.com/search?q=metric+measurement+for+rain&rlz=1C5CHFA_enGB844GB844&oq=metric+measurement+for+rain&aqs=chrome..69i57j0i22i30i457.8263j0j9&sourceid=chrome&ie=UTF-8 
