@@ -2,14 +2,16 @@
 <head>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <h1> 'Hello World! The current temp is {{thermo}}' </h1>
-<link rel="stylesheet" href='/static/style.css' />
+<!-- //<link rel="stylesheet" href='/static/style.css' /> -->
 </head>
 <body>
-<h1>brightness is {{lumens}} lumens</h1>
+<!-- <h1>brightness is {{lumens}} lumens</h1>
 <button type="button" onclick=location.reload() >Click to update lumens</button>
-<button type="button" onclick={{lumens}}.reload() >Click to update both </button>
+<button type="button" onclick={{lumens}}.reload() >Click to update both </button> -->
 <div id="localTemp">
-  
+ CITY = <h1 id="locale"></h1>
+ Todays Forecast = <h1 id="forecast"> </h1>
+ Rain Next Hour? = <h1 id="precip"> </h1> at <h1 id="timeRain"></h1>
 </div>
 
 <script src="../src/apiKeys.js"></script>
