@@ -11,18 +11,20 @@ class addWeatherData{
 
   }
   static parsePrecip (data) {
-    var chanceOfRain = "false"
+    var chanceOfRain = false
     var timeRain = null
-    for(let i = 0; i <= 60; i++){
-      if(data[i].precipitation < 0){
+    for(let i = 0; i < 60; i++){
+      console.log(data[i])
+      if(data[i].precipitation > 0){
         chanceOfRain = "true"
-        if(chanceOfRain == null){
-          timeRain = data[i].dt
+        if(timeRain == null){
+          
+          timeRain = new Date(data[i].dt * 1000)
         }
       }
-      return [chanceOfRain, timeRain]
+      // return [chanceOfRain, timeRain]
     }
-    return [chanceOfRain, timeRain]
+    return [chanceOfRain , timeRain]
   }
   
 
@@ -51,7 +53,12 @@ $('#locale').text(weather.list[0].main.temp)})//.main.temp-273.15))})
 $.get("http://api.openweathermap.org/data/2.5/onecall?lat=51.3002&lon=0.4933&appid=" + OPEN_WEATHER_API, function (weather){
   console.log(weather)
 $('#forecast').text(weather.current.weather[0].description)  
-$('#precip').text(addWeatherData.parsePrecip(weather.minutely))
+ hello = weather.minutely
+$('#precip').text(addWeatherData.parsePrecip(weather.minutely)[0])
+if((addWeatherData.parsePrecip(weather.minutely)[0])){
+
+
+$('#timeRain').text(addWeatherData.parsePrecip(weather.minutely)[1])}
 })
 // })
 // $.get("http://api.openweathermap.org/data/2.5/weather?q=London&appid=16f42bf1b7c2d1ff6c5fba304885dc11", function (weather)
