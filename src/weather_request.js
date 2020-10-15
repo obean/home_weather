@@ -14,7 +14,7 @@ class addWeatherData{
     var chanceOfRain = false
     var timeRain = null
     for(let i = 0; i < 60; i++){
-      console.log(data[i])
+      
       if(data[i].precipitation > 0){
         chanceOfRain = "true"
         if(timeRain == null){
@@ -44,13 +44,15 @@ class addWeatherData{
 //     });
 //   }
 $(document).ready(function () {
-// {$.get("http://api.openweathermap.org/data/2.5/forecast?q=Guildford&units=metric&cnt=3&appid=" + OPEN_WEATHER_API), function(weather){
-//  console.log(weather.responseJSON)
-// $('#locale').text(weather.responseJSON.city.name)}
-// $.get("http://api.openweathermap.org/data/2.5/forecast?q=Guildford&units=metric&cnt=3&appid" + OPEN_WEATHER_API, function (weather)
-// {// {console.log(weather)
-$('#locale').text(weather.list[0].main.temp)})//.main.temp-273.15))})
-$.get("http://api.openweathermap.org/data/2.5/onecall?lat=51.3002&lon=0.4933&appid=" + OPEN_WEATHER_API, function (weather){
+  $.get("https://api.sunrise-sunset.org/json?lat=51.2907394&lng=-0.5111766",function(sunrise) {
+    console.log(sunrise)
+    $('#sunrise').text( sunrise.results.sunrise)
+    $('#sunset').text( sunrise.results.sunset)
+    $('#daylength').text(sunrise.results.day_length)
+    return sunrise
+  })
+})
+$.get("http://api.openweathermap.org/data/2.5/onecall?lat=51.2907394&lon=0.4933&appid=" + OPEN_WEATHER_API, function (weather){
   console.log(weather)
 $('#forecast').text(weather.current.weather[0].description)  
  hello = weather
@@ -60,6 +62,7 @@ if((addWeatherData.parsePrecip(weather.minutely)[0])){
 
 $('#timeRain').text(addWeatherData.parsePrecip(weather.minutely)[1])}
 })
+// })
 // })
 // $.get("http://api.openweathermap.org/data/2.5/weather?q=London&appid=16f42bf1b7c2d1ff6c5fba304885dc11", function (weather)
 //     {$('#locale').text(Math.round(weather.main.temp-273.15))})
