@@ -54,7 +54,8 @@ $(document).ready(function () {
 })
 $.get("http://api.openweathermap.org/data/2.5/onecall?lat=51.2907394&lon=0.4933&appid=" + OPEN_WEATHER_API, function (weather){
   console.log(weather)
-$('#forecast').text(weather.current.weather[0].description)  
+$('#forecast').text(weather.current.weather[0].description) 
+$('#weatherIcon').attr('src', "http://openweathermap.org/img/w/" + weather.current.weather[0].icon + ".png")
  hello = weather
 $('#precip').text(addWeatherData.parsePrecip(weather.minutely)[0])
 if((addWeatherData.parsePrecip(weather.minutely)[0])){

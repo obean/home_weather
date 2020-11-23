@@ -1,3 +1,30 @@
+<style>
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: black groove;
+    padding: 5px
+}
+
+.suntime-box {
+    border: black dotted;
+    display: inline-grid;
+    grid-template-columns: auto auto  auto;
+    grid-column-gap: 25px;
+    padding: 10px
+}
+.sun-element-box img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.weather-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+
 <html>
 <head>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -8,16 +35,44 @@
 <!-- <h1>brightness is {{lumens}} lumens</h1>
 <button type="button" onclick=location.reload() >Click to update lumens</button>
 <button type="button" onclick={{lumens}}.reload() >Click to update both </button> -->
-<div id="localTemp">
- CITY = <h1 id="locale"></h1>
- Todays Forecast = <h1 id="forecast"> </h1>
- Rain Next Hour? = <h1 id="precip"> </h1> at <h1 id="timeRain"></h1>
-</div>
-<div id=sunTime> 
-Todays Sunrise = <p id="sunrise"></p>    
-Todays Sunset = <p id="sunset"></p>
-Daylight hours total =  <p id="daylength"></p>
-Daylight hours left = <i>function coming soon...</i>
+
+<div class= "grid-container" >
+
+
+    <div class="suntime-box" id="localTemp">
+        <div class="sun-element-box">
+            <!-- CITY = <h1 id="locale"></h1> -->
+            <img id="weatherIcon" src = '' alt="Weather Icon" height='50px' width='50px'>
+            Todays Forecast = <span id="forecast"> </span>
+            
+            <br>
+            Rain Next Hour? = <span id="precip"> </span> at <span id="timeRain"></span>
+        </div>
+    </div>
+    ____
+    <div>
+        <div class='suntime-header'>
+            <h3 class="sun-title">Daylight Hours</h3>
+            <div class="suntime-box" id=sunTime> 
+
+                <div class="sun-element-box">
+                    <img src='../img/sunrise.png' width="50px" height="50px" >
+                    <p id="sunrise"></p> 
+                </div>
+
+                <div class="sun-element-box">
+                    <img src='../img/sunset.png' width="50px" height="50px">
+                    <p id="sunset"></p>
+                </div>   
+        
+            <div class="sun-element-box">
+                <p id="daylength"></p>
+                <i>Daylight hours left</i>
+            </div>
+        </div>
+        </div>
+    </div>
+
 </div>
 
 <script src="../src/apiKeys.js"></script>
